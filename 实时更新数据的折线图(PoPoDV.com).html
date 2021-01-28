@@ -29,7 +29,7 @@
 			time: {
 				alias: '时间',
 				type: 'time',
-				mask: 'MM:ss',
+				mask: 'mm:ss',
 				tickCount: 6, // 设置坐标轴上刻度点的个数
 				nice: false,
 			},
@@ -47,8 +47,10 @@
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
 		setInterval(function () {
-			var now = new Date();
-			var time = now.getTime();
+			// var now = new Date();
+			// console.log(now)
+			// var time = now.getTime();
+			// console.log(time)
 			var temperature1 = ~~(Math.random() * 5) + 22;
 			var temperature2 = ~~(Math.random() * 7) + 17;
 			// 这段逻辑应该没什么特别的意义，应该只是用来释放内存空间
@@ -57,17 +59,17 @@
 			// 	data.shift();
 			// }
 			data.push({
-				time: time,
+				time: Date.now(),
 				temperature: temperature1,
 				type: '记录1'
 			});
 			data.push({
-				time: time,
+				time: Date.now(),
 				temperature: temperature2,
 				type: '记录2'
 			});
 			chart.changeData(data);
-		}, 1000);
+		}, 2000);
 				</script>
 </body>
 </html>
