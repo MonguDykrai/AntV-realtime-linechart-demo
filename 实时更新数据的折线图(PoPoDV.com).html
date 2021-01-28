@@ -44,6 +44,9 @@
 			// 	alias: 'won'
 			// }
 		});
+		// chart.axis('x', {
+		// 	title: true,
+		// });
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
 		setInterval(function () {
