@@ -13,6 +13,7 @@
 	<body>
 		<div id="container"></div>
 		<script>
+			G2.Global.renderer = 'svg'
 
 		$('#container').css({
 			overflow: 'hidden'
@@ -28,7 +29,7 @@
 				alias: '时间',
 				type: 'time',
 				mask: 'MM:ss',
-				tickCount: 200,
+				tickCount: 12, // 设置坐标轴上刻度点的个数
 				nice: false
 			},
 			temperature: {
@@ -36,9 +37,9 @@
 				min: 10,
 				max: 35
 			},
-			type: {
-				type: 'cat'
-			}
+			// type: {
+			// 	type: 'cat'
+			// }
 		});
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
