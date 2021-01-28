@@ -38,9 +38,11 @@
 				min: 10,
 				max: 35
 			},
-			// type: {
-			// 	type: 'cat'
-			// }
+			type: {
+				type: 'cat',
+				values: ['cat', 'dog'],
+				alias: 'won'
+			}
 		});
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
