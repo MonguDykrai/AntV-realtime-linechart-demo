@@ -1,0 +1,61 @@
+
+<html>
+<!-- PoPo 数据可视化 PoPoDV.com -->
+<!-- 实时更新数据的折线图 http://www.popodv.com/dv/bb631a1538829615679.html -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>PoPo数据可视化_实时更新数据的折线图</title>
+		<script src="http://static.popodv.com/dvlibs/alipay/g2.v3.2.8.min.js"></script>
+		<script src="http://static.popodv.com/dvlibs/tool/jquery.min.js"></script>
+		<style>html,body,#container{width:100%;height:100%;margin:0;padding:0;}</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script>
+		$('#container').css({
+			overflow: 'hidden'
+		});
+		var data = [];
+		var chart = new G2.Chart({
+			container: 'container',
+			forceFit: true,
+			height: $("#container").height()
+		});
+		chart.source(data, {
+			time: {
+				alias: '时间',
+				type: 'time',
+				mask: 'HH:mm:ss',
+				tickCount: 6,
+				nice: false,
+			},
+			temperature: {
+				alias: '平均温度(°C)',
+				min: 10,
+				max: 35
+			},
+			type: {
+				type: 'cat',
+			}
+		});
+		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
+		chart.render();
+		setInterval(function () {
+			var temperature1 = ~~(Math.random() * 5) + 22;
+			var temperature2 = ~~(Math.random() * 7) + 17;
+			data.push({
+				time: Date.now(),
+				temperature: temperature1,
+				type: '记录1'
+			});
+			data.push({
+				time: Date.now(),
+				temperature: temperature2,
+				type: '记录2'
+			});
+			chart.changeData(data);
+		}, 2000);
+				</script>
+</body>
+</html>
