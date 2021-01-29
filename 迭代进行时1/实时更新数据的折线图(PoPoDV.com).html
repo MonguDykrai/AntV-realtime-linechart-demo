@@ -82,6 +82,9 @@
 			var temperature1 = ~~(Math.random() * 5) + 22;
 			var temperature2 = ~~(Math.random() * 7) + 17;
 			// 这段逻辑应该没什么特别的意义，应该只是用来释放内存空间
+			// if (data.length == 12) {
+			// 	console.log(JSON.stringify(data))
+			// }
 			if (data.length >= 14) {
 				data.shift();
 				data.shift();
