@@ -9,9 +9,22 @@
 		<script src="http://static.popodv.com/dvlibs/alipay/g2.v3.2.8.min.js"></script>
 		<script src="http://static.popodv.com/dvlibs/tool/jquery.min.js"></script>
 		<style>html,body,#container{width:100%;height:100%;margin:0;padding:0;}</style>
+		<style>
+			.container_wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100vw;
+				height: 100vh;
+			}
+			#container {
+				width: 80%;
+				height: 80%;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="container"></div>
+		<div class="container_wrapper"><div id="container"></div></div>
 		<script>
 			// G2.Global.renderer = 'svg' // svg 效果没 canvas 好，会存在刷新不及时的问题
 
@@ -54,6 +67,9 @@
 				stroke: 'red', // 设置线的颜色
 				lineDash: [ 3, 3 ] // 设置虚线样式
 			}
+		})
+		chart.axis('time', {
+			title: {},
 		})
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
