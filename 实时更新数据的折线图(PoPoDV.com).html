@@ -47,6 +47,14 @@
 		// chart.axis('x', {
 		// 	title: true,
 		// });
+		chart.axis('temperature', {
+			title: {},
+			line: {
+				lineWidth: 2, // 设置线的宽度
+				stroke: 'red', // 设置线的颜色
+				lineDash: [ 3, 3 ] // 设置虚线样式
+			}
+		})
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
 		setInterval(function () {

@@ -39,6 +39,14 @@
 				type: 'cat',
 			}
 		});
+		chart.axis('temperature', {
+			title: {},
+			line: {
+				lineWidth: 2,
+				stroke: 'red',
+				lineDash: [ 3, 3 ]
+			}
+		})
 		chart.line().position('time*temperature').color('type', ['#ff7f0e', '#2ca02c']).shape('smooth').size(2);
 		chart.render();
 		setInterval(function () {
